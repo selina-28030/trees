@@ -214,6 +214,8 @@ class BinaryTree(object):
         Implement this function. 
         The lecture notes videos provide the exact code you need.
         '''
+        if self.root is None:
+            return 0
         stack = Stack()
         stack.push(self.root)
         size = 1
