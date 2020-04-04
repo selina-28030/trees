@@ -191,6 +191,21 @@ class BinaryTree(object):
         Implement this function.
         The lecture notes videos provide the exact code you need.
         '''
+        if self.root is None:
+            return 0
+
+        stack = Stack()
+        stack.push(self.root)
+        size = 1
+        while stack:
+            node = stack.pop()
+            if node.left:
+                size += 1
+                stack.push(node.left)
+            if node.right:
+                size += 1
+                stack.push(node.right)
+        return size
 
     def height(self):
         return BinaryTree._height(self.root)
