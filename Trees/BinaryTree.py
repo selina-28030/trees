@@ -4,6 +4,36 @@ These two classes are the building blocks for the BST, AVLTree, and Heap data st
 It is crucial to get these implemented correctly in order to be able to implement the other data structures.
 '''
 
+class Stack(object):
+    def __init__(self):
+        self.items = []
+
+    def __len__(self):
+        return self.size()
+     
+    def size(self):
+        return len(self.items)
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):  
+        if not self.is_empty():
+            return self.items.pop()
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def __str__(self):
+        s = ""
+        for i in range(len(self.items)):
+            s += str(self.items[i].value) + "-"
+        return s
+
 class Node(object):
     '''
     You do not have to implement anything within this class.
