@@ -73,13 +73,18 @@ class BinaryTree():
             return self.postorder_print(self.root, '')
         else:
             raise ValueError('Traversal type ' + str(traversal_type) + ' is not supported.')
-
+    
     def preorder_print(self, start, traversal):
         '''
         FIXME: 
         Implement this function.
         The lecture notes videos provide the exact code you need.
         '''
+        if start:
+            traversal += (str(start.value) + "-"))
+            traversal = self.preorder_print(start,left, traversal)
+            traversal = self.preorder_print(start, right, traversal)
+        return traversal
 
     def inorder_print(self, start, traversal):
         '''
@@ -87,6 +92,11 @@ class BinaryTree():
         Implement this function.
         The lecture notes videos provide the exact code you need.
         '''
+        if start:
+            traversal = self.inorder_print(start.left, traversal)
+            traversal += (str(start.value + "-"))
+            traversal = self.inorder_print(start.right, traversal)
+        return traversal
 
     def postorder_print(self, start, traversal):
         '''
@@ -94,6 +104,11 @@ class BinaryTree():
         Implement this function.
         The lecture notes videos provide the exact code you need.
         '''
+        if start:
+            traversal = self.inorder_print(start.left, traversal)
+            traversal = self.inorder_print(start.right, traversal)
+            traversal += (str(start.value + "-"))
+        return traversal
 
 
     def to_list(self, traversal_type):
@@ -124,18 +139,34 @@ class BinaryTree():
         FIXME:
         Implement this function by modifying the _print functions above.
         '''
+        if start:
+            traversal += (str(start.value) + "-"))
+            traversal = self.preorder(start,left, traversal)
+            traversal = self.preorder(start, right, traversal)
+        return traversal
 
     def inorder(self, start, traversal):
         '''
         FIXME:
         Implement this function by modifying the _print functions above.
         '''
+        if start:
+            traversal = self.inorder(start.left, traversal)
+            traversal += (str(start.value + "-"))
+            traversal = self.inorder(start.right, traversal)
+        return traversal
 
     def postorder(self, start, traversal):
         '''
         FIXME:
         Implement this function by modifying the _print functions above.
         '''
+        if start:
+            traversal = self.inorder(start.left, traversal)
+            traversal = self.inorder(start.right, traversal)
+            traversal += (str(start.value + "-"))
+        return traversal
+        
 
     def __len__(self):
         '''
