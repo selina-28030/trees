@@ -184,16 +184,6 @@ class BinaryTree(object):
         Implement this function. 
         The lecture notes videos provide the exact code you need.
         '''
-
-    def size_(self, node):
-        '''
-        FIXME:
-        Implement this function.
-        The lecture notes videos provide the exact code you need.
-        '''
-        if self.root is None:
-            return 0
-
         stack = Stack()
         stack.push(self.root)
         size = 1
@@ -206,6 +196,16 @@ class BinaryTree(object):
                 size += 1
                 stack.push(node.right)
         return size
+
+    def size_(self, node):
+        '''
+        FIXME:
+        Implement this function.
+        The lecture notes videos provide the exact code you need.
+        '''
+        if node is None:
+            return 0
+        return 1 + self.size_(node.left) + self.size_(node.right)
 
     def height(self):
         return BinaryTree._height(self.root)
