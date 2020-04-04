@@ -162,8 +162,8 @@ class BinaryTree(object):
         Implement this function by modifying the _print functions above.
         '''
         if start:
-            traversal = self.inorder(start.left, traversal)
-            traversal = self.inorder(start.right, traversal)
+            traversal = self.postorder(start.left, traversal)
+            traversal = self.postorder(start.right, traversal)
             traversal.append(start.value)
         return traversal
         
