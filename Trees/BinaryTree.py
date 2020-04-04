@@ -207,6 +207,6 @@ class BinaryTree(object):
         This makes it inconvenient to use,
         and so you should implement it as a static method.
         '''
-        return 1 + max(self.height(self.left) if self.left is not None else 0,
-                   self.height(self.right) if self.right is not None else 0)
+        return 1 + max(node.height(self.left) if self.left is not None else 0,
+                   node.height(self.right) if self.right is not None else 0)
    
