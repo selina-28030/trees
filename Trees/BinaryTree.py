@@ -4,7 +4,7 @@ These two classes are the building blocks for the BST, AVLTree, and Heap data st
 It is crucial to get these implemented correctly in order to be able to implement the other data structures.
 '''
 
-class Node():
+class Node(object):
     '''
     You do not have to implement anything within this class.
     Given a node t, you can visualize the node by running str(t) in the python interpreter.
@@ -31,7 +31,7 @@ class Node():
         return ret
 
 
-class BinaryTree():
+class BinaryTree(object):
     '''
     This class is relatively useless by itself,
     but it is the superclass for the BST, AVLTree, and Heap classes,
@@ -94,7 +94,7 @@ class BinaryTree():
         '''
         if start:
             traversal = self.inorder_print(start.left, traversal)
-            traversal += (str(start.value + "-"))
+            traversal += (str(start.value) + "-")
             traversal = self.inorder_print(start.right, traversal)
         return traversal
 
@@ -105,9 +105,9 @@ class BinaryTree():
         The lecture notes videos provide the exact code you need.
         '''
         if start:
-            traversal = self.inorder_print(start.left, traversal)
-            traversal = self.inorder_print(start.right, traversal)
-            traversal += (str(start.value + "-"))
+            traversal = self.postorder_print(start.left, traversal)
+            traversal = self.postorder_print(start.right, traversal)
+            traversal += (str(start.value) + "-")
         return traversal
 
 
