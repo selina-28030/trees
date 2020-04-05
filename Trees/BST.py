@@ -20,6 +20,7 @@ class BST(BinaryTree, Node):
         then each element of xs needs to be inserted into the BST.
         '''
         super().__init__(root)
+        super().__init__(self)
 
     def __repr__(self):
         '''
