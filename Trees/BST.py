@@ -13,14 +13,13 @@ class BST(object):
     and in the constructor below.
     '''
 
-    def __init__(self, xs=None):
+    def __init__(self, root=None, xs=None):
         '''
         FIXME:
         If xs is a list (i.e. xs is not None),
         then each element of xs needs to be inserted into the BST.
         '''
-        self.root = Node(root)
-
+        super().__init__(root)
 
     def __repr__(self):
         '''
