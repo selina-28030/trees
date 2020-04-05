@@ -12,8 +12,6 @@ class BST(object):
     You should make the necessary changes in the class declaration line above 
     and in the constructor below.
     '''
-    def __init__(self, root):
-        self.root = Node(root)
 
     def __init__(self, root=None, xs=None):
         '''
@@ -21,7 +19,7 @@ class BST(object):
         If xs is a list (i.e. xs is not None),
         then each element of xs needs to be inserted into the BST.
         '''
-        super().__init__(root)
+        self.root = Node(root)
 
     def __repr__(self):
         '''
