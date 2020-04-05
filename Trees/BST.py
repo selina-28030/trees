@@ -52,29 +52,24 @@ class BST(BinaryTree, Node):
         return True
 
     @staticmethod
-    def _is_bst_satisfied(node):
+    def _is_bst_satisfied(value, node):
         '''
         FIXME:
         Implement this method.
         The lecture videos have the exact code you need,
         except that their method is an instance method when it should have been a static method.
         '''
-        def helper(node, lower=float('-inf'), upper=float('inf')):
-            if not node:
-                return True
+        if node.left:
+            if value > node.left.value:
+                return _is_bst_satisfied(node.left, node.left.data)
+            else:
+                return False
+        if node.right:
+            if value < node.right.value:
+                return _is_bst_satisfied(node.right, node.right.data)
+            else:
+                return False
             
-            val = node.value
-            if val <= lower or val >= upper:
-                return False
-
-            if not helper(node.right, val, upper):
-                return False
-            if not helper(node.left, lower, val):
-                return False
-            return True
-
-        return helper(node.root)
-
 
     def insert(self, value):
         '''
