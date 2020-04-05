@@ -129,8 +129,7 @@ class BST(BinaryTree, Node):
         Returns whether value is contained in the BST.
         '''
         if self.root:
-            if BST._find(value, self.root):
-                return True
+            return BST._find(value, self.root)
         else:
             return False
 
@@ -143,12 +142,14 @@ class BST(BinaryTree, Node):
         The lecture videos have the exact code you need,
         except that their method is an instance method when it should have been a static method.
         '''
-        if value > node.value and node.right:
-            return BST._find(value, node.right)
+        if value > node.value and node.right: #and node right exists
+            return BST._find(value,node.right)
         elif value < node.value and node.left:
-            return BST._find(value, node.left)
+            return BST._find(value,node.left) #I removed the self. in front of _find
         if value == node.value:
             return True
+        else:
+            return False
 
 
     def find_smallest(self):
