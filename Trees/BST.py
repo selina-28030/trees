@@ -62,7 +62,7 @@ class BST(BinaryTree, Node):
             if not node:
                 return True
             
-            val = node.data
+            val = node.value
             if val <= lower or val >= upper:
                 return False
 
@@ -142,11 +142,11 @@ class BST(BinaryTree, Node):
         The lecture videos have the exact code you need,
         except that their method is an instance method when it should have been a static method.
         '''
-        if value > node.data and node.right:
+        if value > node.value and node.right:
             return BST._find(value, node.right)
-        elif value < node.data and node.left:
+        elif value < node.value and node.left:
             return BST._find(value, node.left)
-        if data == node.data:
+        if value == node.value:
             return True
 
 
