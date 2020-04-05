@@ -73,7 +73,7 @@ class BST(BinaryTree, Node):
                 return False
             return True
 
-        return helper(self.root)
+        return helper(BST.root)
 
 
     def insert(self, value):
