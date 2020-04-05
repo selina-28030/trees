@@ -93,14 +93,14 @@ class BST(BinaryTree, Node):
         The lecture videos have the  exact code you need,
         except that their method is an instance method when it should have been a static method.
         '''
-        if value < node.data:
+        if value < node.value:
             if node.left is None:
-                node.left = Node(data)
+                node.left = Node(value)
                 node.left.parent = value
             else:
                 BST._insert(value, node.left)
 
-        elif value > node.data:
+        elif value > node.value:
             if node.right is None:
                 node.right = Node(value)
                 node.right.parent = node
