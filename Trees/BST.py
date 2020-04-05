@@ -3,7 +3,7 @@ This file implements the Binary Search Tree data structure.
 The functions in this file are considerably harder than the functions in the BinaryTree file.
 '''
 
-from Trees.BinaryTree import BinaryTree, Node
+from Trees.BinaryTree import BinaryTree, Node, Stack
 
 class BST(object):
     '''
@@ -12,6 +12,8 @@ class BST(object):
     You should make the necessary changes in the class declaration line above 
     and in the constructor below.
     '''
+    def __init__(self, root):
+        self.root = Node(root)
 
     def __init__(self, root=None, xs=None):
         '''
