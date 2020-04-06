@@ -52,7 +52,7 @@ class BST(BinaryTree, Node):
         return True
 
     @staticmethod
-    def _is_bst_satisfied(value, node):
+    def _is_bst_satisfied(node):
         '''
         FIXME:
         Implement this method.
@@ -60,12 +60,12 @@ class BST(BinaryTree, Node):
         except that their method is an instance method when it should have been a static method.
         '''
         if node.left:
-            if value > node.left.value:
+            if node.value > node.left.value:
                 return _is_bst_satisfied(node.left, node.left.value)
             else:
                 return False
         if node.right:
-            if value < node.right.value:
+            if node.value < node.right.value:
                 return _is_bst_satisfied(node.right, node.right.value)
             else:
                 return False
