@@ -162,16 +162,16 @@ class BST(BinaryTree, Node):
         Create a recursive staticmethod helper function,
         similar to how the insert and find functions have recursive helpers.
         '''
-            node = self.root
-            return BST._find_smallest(node)
+        node = self.root
+        return BST._find_smallest(node)
         
     
-        @staticmethod
-        def _find_smallest(node):
-            if node.left:
-                return BST._find_smallest(node.left)
-            else:
-                return node.value
+    @staticmethod
+    def _find_smallest(node):
+        if node.left:
+            return BST._find_smallest(node.left)
+        else:
+            return node.value
 
 
     def find_largest(self):
@@ -183,16 +183,16 @@ class BST(BinaryTree, Node):
         This function is not implemented in the lecture notes,
         but if you understand the structure of a BST it should be easy to implement.
         '''
-            node = self.root
-            return BST._find_largest(node)
+        node = self.root
+        return BST._find_largest(node)
         
     
-        @staticmethod
-        def _find_largest(node):
-            if node.right:
-                return BST._find_largest(node.right)
-            else:
-                return node.value
+    @staticmethod
+    def _find_largest(node):
+        if node.right:
+            return BST._find_largest(node.right)
+        else:
+            return node.value
 
 
     def remove(self,value):
