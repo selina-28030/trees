@@ -61,12 +61,12 @@ class BST(BinaryTree, Node):
         '''
         if node.left:
             if node.value > node.left.value:
-                return _is_bst_satisfied(node.left, node.left.value)
+                return _is_bst_satisfied(node.left.value)
             else:
                 return False
         if node.right:
             if node.value < node.right.value:
-                return _is_bst_satisfied(node.right, node.right.value)
+                return _is_bst_satisfied(node.right.value)
             else:
                 return False
             
