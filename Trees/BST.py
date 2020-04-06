@@ -168,7 +168,7 @@ class BST(BinaryTree, Node):
     
     @staticmethod
     def _find_smallest(node):
-        if node.left:
+        if node.left is not None:
             return BST._find_smallest(node.left)
         else:
             return node.value
@@ -189,7 +189,7 @@ class BST(BinaryTree, Node):
     
     @staticmethod
     def _find_largest(node):
-        if node.right:
+        if node.right is not None:
             return BST._find_largest(node.right)
         else:
             return node.value
