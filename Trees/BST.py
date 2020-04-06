@@ -48,6 +48,7 @@ class BST(BinaryTree, Node):
         are actually working.
         '''
         if self.root:
+            print(BST._is_bst_satisfied(self.root))
             return BST._is_bst_satisfied(self.root)
         return True
 
@@ -69,7 +70,7 @@ class BST(BinaryTree, Node):
                 return BST._is_bst_satisfied(node.right)
             else:
                 return False
-        return True
+        
             
 
     def insert(self, value):
