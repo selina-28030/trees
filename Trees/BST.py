@@ -162,7 +162,7 @@ class BST(BinaryTree, Node):
     def _find_node(value, node):
         '''
         requires that value is already in tree with node as the root
-        ''''
+        '''
         if value > node.value and node.right: 
             return BST._find(value,node.right)
         elif value < node.value and node.left:
