@@ -13,14 +13,15 @@ class BST(BinaryTree, Node):
     and in the constructor below.
     '''
 
-    def __init__(self, root=None, xs=None):
+    def __init__(self, xs=None):
         '''
         FIXME:
         If xs is a list (i.e. xs is not None),
         then each element of xs needs to be inserted into the BST.
         '''
-        super().__init__(root)
-        super().__init__(self)
+        self.root = None
+        if xs:
+            self.insert_list(xs)
 
     def __repr__(self):
         '''
