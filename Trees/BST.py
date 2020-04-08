@@ -124,6 +124,8 @@ class BST(BinaryTree, Node):
         FIXME:
         Implement this function.
         '''
+        for x in xs:
+            self.insert(x)
 
 
     def __contains__(self, value):
