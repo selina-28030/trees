@@ -78,6 +78,7 @@ class BST(BinaryTree, Node):
                 return BST._is_bst_satisfied(node.right)
             else:
                 return False
+        return True
         
             
 
