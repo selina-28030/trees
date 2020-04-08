@@ -31,7 +31,6 @@ class BST(BinaryTree, Node):
         Recall that the __repr__ function should return a string that can be used to recreate a valid instance of the class.
         Thus, if you create a variable using the command BST([1,2,3])
         it's __repr__ will return "BST([1,2,3])"
-
         For the BST, type(self).__name__ will be the string "BST",
         but for the AVLTree, this expression will be "AVLTree".
         Using this expression ensures that all subclasses of BST will have a correct implementation of __repr__,
@@ -120,7 +119,6 @@ class BST(BinaryTree, Node):
     def insert_list(self, xs):
         '''
         Given a list xs, insert each element of xs into self.
-
         FIXME:
         Implement this function.
         '''
@@ -159,22 +157,34 @@ class BST(BinaryTree, Node):
         else:
             return False
 
+    
+    @staticmethod
+    def _find_node(value, node):
+        '''
+        requires that value is already in tree with node as the root
+        ''''
+        if value > node.value and node.right: 
+            return BST._find(value,node.right)
+        elif value < node.value and node.left:
+            return BST._find(value,node.left) 
+        if value == node.value:
+            return node
+
+
 
     def find_smallest(self):
         '''
         Returns the smallest value in the tree.
-
         FIXME:
         Implement this function.
         This function is not implemented in the lecture notes,
         but if you understand the structure of a BST it should be easy to implement.
-
         HINT:
         Create a recursive staticmethod helper function,
         similar to how the insert and find functions have recursive helpers.
         '''
         node = self.root
-        return BST._find_smallest(node)
+        return BST._find_smallest(node).value
         
     
     @staticmethod
@@ -182,20 +192,19 @@ class BST(BinaryTree, Node):
         if node.left is not None:
             return BST._find_smallest(node.left)
         else:
-            return node.value
+            return node
 
 
     def find_largest(self):
         '''
         Returns the largest value in the tree.
-
         FIXME:
         Implement this function.
         This function is not implemented in the lecture notes,
         but if you understand the structure of a BST it should be easy to implement.
         '''
         node = self.root
-        return BST._find_largest(node)
+        return BST._find_largest(node).value
         
     
     @staticmethod
@@ -203,32 +212,39 @@ class BST(BinaryTree, Node):
         if node.right is not None:
             return BST._find_largest(node.right)
         else:
-            return node.value
+            return node
 
 
     def remove(self,value):
         '''
         Removes value from the BST. 
         If value is not in the BST, it does nothing.
-
         FIXME:
         implement this function.
         There is no code given in any of the lecture videos on how to implement this function,
         but the video by HMC prof Colleen Lewis explains the algorithm.
-
         HINT:
         You must have find_smallest/find_largest working correctly 
         before you can implement this function.
-
         HINT:
         Use a recursive helper function.
         '''
         self.root = BST._remove(self.root,value)
         
     def _remove(value, node):
-        if find(value):
-            if not node.left and not node.right:
-                node.root
+        if BST._find(value, node):
+            delnode = BST._find_node(value, node)
+            if not delnode.left and not delnode.right:
+                delnode = None
+            elif not delnode.left:
+                delnode = delnode.right
+            elif not delnode.right:
+                delnode = delnode.left
+            else:
+                lnode = delnode.left
+                delnode = delnode.right
+                snode = BST._find_smallest(delnode)
+                snode.left = lnode   
         else:
             pass
 
@@ -236,7 +252,6 @@ class BST(BinaryTree, Node):
     def remove_list(self, xs):
         '''
         Given a list xs, remove each element of xs from self.
-
         FIXME:
         Implement this function.
         '''
