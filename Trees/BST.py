@@ -188,8 +188,7 @@ class BST(BinaryTree, Node):
         '''
         node = self.root
         x = BST._find_smallest(node).value
-        for i in x:
-            return int(i)
+        return x
         
     
     @staticmethod
@@ -210,9 +209,7 @@ class BST(BinaryTree, Node):
         '''
         node = self.root
         xs = BST._find_largest(node).value
-        for i in xs:
-            return int(i)
-        #return BST._find_largest(node).value
+        return xs
         
     
     @staticmethod
