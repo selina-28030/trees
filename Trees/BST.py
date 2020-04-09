@@ -122,8 +122,11 @@ class BST(BinaryTree, Node):
         FIXME:
         Implement this function.
         '''
-        for x in xs:
-            self.insert(x)
+        if len(xs) > 1:
+            for x in xs:
+                self.insert(x)
+        else:
+            self.insert(xs)
 
 
     def __contains__(self, value):
@@ -255,6 +258,10 @@ class BST(BinaryTree, Node):
         FIXME:
         Implement this function.
         '''
-        for x in xs:
-            self.remove_list(x)
+        if len(xs) > 1:
+            for x in xs:
+                self.remove(x)
+        else:
+            self.remove(xs)
+
             
