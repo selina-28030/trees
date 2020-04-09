@@ -230,12 +230,12 @@ class BST(BinaryTree, Node):
         HINT:
         Use a recursive helper function.
         '''
-        if self.find(value):
-            self.root = BST._remove(value,self.root)
+        
+        self.root = BST._remove(value,self.root)
         
     @staticmethod
     def _remove(value, node):
-        if node == None:
+        if node==None:
             return None
         if not node.left and not node.right:
             if node.value==value:
@@ -276,8 +276,5 @@ class BST(BinaryTree, Node):
         FIXME:
         Implement this function.
         '''
-        if type(xs) == int:
-            return self.remove(xs)
-        else: 
-            for x in xs:
-                return self.remove(x)
+        for x in xs:
+            self.remove(x)
