@@ -187,7 +187,9 @@ class BST(BinaryTree, Node):
         similar to how the insert and find functions have recursive helpers.
         '''
         node = self.root
-        return int(i) for i in BST._find_smallest(node).value
+        x = BST._find_smallest(node).value
+        for i in x:
+            return int(i)
         
     
     @staticmethod
@@ -207,7 +209,10 @@ class BST(BinaryTree, Node):
         but if you understand the structure of a BST it should be easy to implement.
         '''
         node = self.root
-        return int(i) for i in BST._find_largest(node).value
+        xs = BST._find_largest(node).value
+        for i in xs:
+            return int(i)
+        #return BST._find_largest(node).value
         
     
     @staticmethod
