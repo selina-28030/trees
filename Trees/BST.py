@@ -230,8 +230,8 @@ class BST(BinaryTree, Node):
         HINT:
         Use a recursive helper function.
         '''
-        n=BST._remove(value,self.root)
-        self.root = n
+        if self.find(value):
+            self.root = BST._remove(value,self.root)
         
     @staticmethod
     def _remove(value, node):
