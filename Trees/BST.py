@@ -26,14 +26,14 @@ class BST(BinaryTree, Node):
     def __repr__(self):
         '''
         Notice that in the BinaryTree class,
-        we defined a __str__ function,
-        but not a __repr__ function.
-        Recall that the __repr__ function should return a string that can be used to recreate a valid instance of the class.
+        we defined a _str_ function,
+        but not a _repr_ function.
+        Recall that the _repr_ function should return a string that can be used to recreate a valid instance of the class.
         Thus, if you create a variable using the command BST([1,2,3])
-        it's __repr__ will return "BST([1,2,3])"
+        it's _repr_ will return "BST([1,2,3])"
         For the BST, type(self).__name__ will be the string "BST",
         but for the AVLTree, this expression will be "AVLTree".
-        Using this expression ensures that all subclasses of BST will have a correct implementation of __repr__,
+        Using this expression ensures that all subclasses of BST will have a correct implementation of _repr_,
         and that they won't have to reimplement it.
         '''
         return type(self).__name__+'('+str(self.to_list('inorder'))+')'
@@ -122,11 +122,8 @@ class BST(BinaryTree, Node):
         FIXME:
         Implement this function.
         '''
-        if len(xs) > 1:
-            for x in xs:
-                self.insert(x)
-        else:
-            self.insert(xs)
+        for x in xs:
+            self.insert(x)
 
 
     def __contains__(self, value):
@@ -151,6 +148,7 @@ class BST(BinaryTree, Node):
         The lecture videos have the exact code you need,
         except that their method is an instance method when it should have been a static method.
         '''
+
         if value > node.value and node.right: 
             return BST._find(value,node.right)
         elif value < node.value and node.left:
@@ -167,9 +165,9 @@ class BST(BinaryTree, Node):
         requires that value is already in tree with node as the root
         '''
         if value > node.value and node.right: 
-            return BST._find(value,node.right)
+            return BST._find_node(value,node.right)
         elif value < node.value and node.left:
-            return BST._find(value,node.left) 
+            return BST._find_node(value,node.left) 
         if value == node.value:
             return node
 
@@ -187,12 +185,7 @@ class BST(BinaryTree, Node):
         similar to how the insert and find functions have recursive helpers.
         '''
         node = self.root
-        x = BST._find_smallest(node).value
-        if type(x) == list:
-            for i in x:
-                return int(i)
-        else:
-            return x
+        return BST._find_smallest(node).value
         
     
     @staticmethod
@@ -212,12 +205,7 @@ class BST(BinaryTree, Node):
         but if you understand the structure of a BST it should be easy to implement.
         '''
         node = self.root
-        xs = BST._find_largest(node).value
-        if type(xs) == list:
-            for i in xs:
-                return int(i)
-        else:
-            return xs
+        return BST._find_largest(node).value
         
     
     @staticmethod
@@ -242,8 +230,10 @@ class BST(BinaryTree, Node):
         HINT:
         Use a recursive helper function.
         '''
-        self.root = BST._remove(value, self.root)
+        n=BST._remove(value,self.root)
+        self.root = n
         
+    @staticmethod
     def _remove(value, node):
         if not node.left and not node.right:
             if node.value==value:
@@ -284,10 +274,5 @@ class BST(BinaryTree, Node):
         FIXME:
         Implement this function.
         '''
-        if len(xs) > 1:
-            for x in xs:
-                self.remove(x)
-        else:
-            self.remove(xs)
-
-            
+        for x in xs:
+            self.remove_list(x)
