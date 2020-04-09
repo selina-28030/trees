@@ -188,8 +188,11 @@ class BST(BinaryTree, Node):
         '''
         node = self.root
         x = BST._find_smallest(node).value
-        print(type(x))
-        return x
+        if type(x) == list:
+            for i in x:
+                return int(i)
+        else:
+            return x
         
     
     @staticmethod
@@ -210,8 +213,11 @@ class BST(BinaryTree, Node):
         '''
         node = self.root
         xs = BST._find_largest(node).value
-        print(type(xs))
-        return xs
+        if type(xs) == list:
+            for i in xs:
+                return int(i)
+        else:
+            return xs
         
     
     @staticmethod
@@ -239,22 +245,38 @@ class BST(BinaryTree, Node):
         self.root = BST._remove(self.root,value)
         
     def _remove(value, node):
-        if BST._find(value, node):
-            delnode = BST._find_node(value, node)
-            if not delnode.left and not delnode.right:
-                delnode = None
-            elif not delnode.left:
-                delnode = delnode.right
-            elif not delnode.right:
-                delnode = delnode.left
+        if not node.left and not node.right:
+            if node.value==value:
+                return None
             else:
-                lnode = delnode.left
-                delnode = delnode.right
-                snode = BST._find_smallest(delnode)
-                snode.left = lnode   
-        else:
-            pass
-
+                return node
+            
+        if node.left and not node.right:
+            if node.value==value:
+                return node.left
+            else:
+                node.left=BST._remove(value,node.left)
+                return node
+            
+        if node.right and not node.left:
+            if node.value==value:
+                return node.right
+            else:
+                node.right=BST._remove(value,node.right)
+                return node
+        
+        if node.left and node.right:
+            if node.value==value:
+                sm_right=BST._find_smallest(node.right)
+                sm_right.left=node.left
+                return node.right
+            else:
+                if value < node.value:
+                    node.left=BST._remove(value,node.left)
+                    return node
+                else:
+                    node.right=BST._remove(value,node.right)
+                    return node
 
     def remove_list(self, xs):
         '''
