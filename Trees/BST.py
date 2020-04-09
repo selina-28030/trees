@@ -275,7 +275,7 @@ class BST(BinaryTree, Node):
         Implement this function.
         '''
         if type(xs) == int:
-            self.remove_list(xs)
+            return self.remove_list(xs)
         else:    
             for x in xs:
-                self.remove_list(x)
+                return self.remove_list(x)
