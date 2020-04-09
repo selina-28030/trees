@@ -235,6 +235,8 @@ class BST(BinaryTree, Node):
         
     @staticmethod
     def _remove(value, node):
+        if node == None:
+            return None
         if not node.left and not node.right:
             if node.value==value:
                 return None
@@ -276,6 +278,6 @@ class BST(BinaryTree, Node):
         '''
         if type(xs) == int:
             return self.remove(xs)
-        else:    
+        else: 
             for x in xs:
                 return self.remove(x)
