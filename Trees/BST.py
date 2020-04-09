@@ -242,9 +242,9 @@ class BST(BinaryTree, Node):
         HINT:
         Use a recursive helper function.
         '''
-        self.root = BST._remove(self.root,value)
+        self.root = BST._remove(value, self.root)
         
-    def _remove(node, value):
+    def _remove(value, node):
         if not node.left and not node.right:
             if node.value==value:
                 return None
