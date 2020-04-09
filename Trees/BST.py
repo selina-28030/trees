@@ -274,7 +274,7 @@ class BST(BinaryTree, Node):
         FIXME:
         Implement this function.
         '''
-        if len(xs) = 1:
+        if len(xs) == 1:
             self.remove_list(xs)
         else:    
             for x in xs:
