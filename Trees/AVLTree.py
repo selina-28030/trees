@@ -61,5 +61,5 @@ class AVLTree(BST):
 		return newroot
 		
 
-	def insert(self, value):
+	#def insert(self, value):
 
