@@ -32,13 +32,34 @@ class AVLTree(BST):
 		return AVLTree._balance_factor(node) in [-1, 0, 1] and AVLTree._is_avl_satisfied(node.left) and AVLTree._is_avl_satisfied(node.right)
 
    
-	#@staticmethod
-	#def_left_rotate(node):
+	@staticmethod
+	def_left_rotate(node):
+		if node is None or node.right is None:
+			return node
+		newroot = Node(node.right.value)
+		newroot.left = node.right.right
+		
+		new_left = Node(node.value)
+		new_left.left = node.left
+		new_left.right = node.right.left
+		new_root.left = new_left
+		return new_root
+
 
 	
-	#@staticmethod
-	#def _right_rotate(node):
+	@staticmethod
+	def _right_rotate(node):
+		if node is None or node.left is None:
+			return node	
+		newroot = Node(node.left.value)
+		newroot.left = node.left.left
+		
+		new_right = Node(node.value)
+		new_right.right = node.right
+		new_right.left = node.left.right
+		newroot.right = new_right
+		return newroot
 		
 
-	#def insert(self, value):
+	def insert(self, value):
 
