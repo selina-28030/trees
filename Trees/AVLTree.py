@@ -13,7 +13,6 @@ class AVLTree(BST):
     You should make the necessary changes in the class declaration line above 
     and in the constructor below.
     '''
-
     def __init__(self, xs=None):
         '''
         FIXME:
