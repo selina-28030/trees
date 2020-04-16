@@ -31,44 +31,14 @@ class AVLTree(BST):
 			return True
 		return AVLTree._balance_factor(node) in [-1, 0, 1] and AVLTree._is_avl_satisfied(node.left) and AVLTree._is_avl_satisfied(node.right)
 
-    @staticmethod
-    def _left_rotate(node):
-        '''
-        FIXME:
-        Implement this function.
+   
+	#@staticmethod
+	#def_left_rotate(node):
 
-        The lecture videos provide a high-level overview of tree rotations,
-        and the textbook provides full python code.
-        The textbook's class hierarchy for their AVL tree code is fairly different from our class hierarchy,
-        however, so you will have to adapt their code.
-        '''
 	
+	#@staticmethod
+	#def _right_rotate(node):
+		
 
-    @staticmethod
-    def _right_rotate(node):
-        '''
-        FIXME:
-        Implement this function.
+	#def insert(self, value):
 
-        The lecture videos provide a high-level overview of tree rotations,
-        and the textbook provides full python code.
-        The textbook's class hierarchy for their AVL tree code is fairly different from our class hierarchy,
-        however, so you will have to adapt their code.
-        '''
-
-
-    def insert(self, value):
-        '''
-        FIXME:
-        Implement this function.
-
-        The lecture videos provide a high-level overview of how to insert into an AVL tree,
-        and the textbook provides full python code.
-        The textbook's class hierarchy for their AVL tree code is fairly different from our class hierarchy,
-        however, so you will have to adapt their code.
-
-        HINT:
-        It is okay to add @staticmethod helper functions for this code.
-        The code should look very similar to the code for your insert function for the BST,
-        but it will also call the left and right rebalancing functions.
-        '''
