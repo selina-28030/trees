@@ -13,33 +13,20 @@ class AVLTree(BST):
 			self.insert_list(xs)
 
 	def balance_factor(self):
-        '''
-        Returns the balance factor of a tree.
-        '''
         	return AVLTree._balance_factor(self.root)
 
 	@staticmethod
 	def _balance_factor(node):
-	'''
-	Returns the balance factor of a node.
-	'''
 		if node is None:
 	    		return 0
 		return BinaryTree._height(node.left) - BinaryTree._height(node.right)
 
 
 	def is_avl_satisfied(self):
-        '''
-        Returns True if the avl tree satisfies that all nodes have a balance factor in [-1,0,1].
-        '''
         	return AVLTree._is_avl_satisfied(self.root)
 
 	@staticmethod
     	def _is_avl_satisfied(node):
-        '''
-        FIXME:
-        Implement this function.
-        '''
 		if node is None:
 			return True
 		return AVLTree._balance_factor(node) in [-1, 0, 1] and AVLTree._is_avl_satisfied(node.left) and AVLTree._is_avl_satisfied(node.right)
