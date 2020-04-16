@@ -19,6 +19,9 @@ class AVLTree():
         FIXME:
         Implement this function.
         '''
+	super().__init__()
+	if xs:
+		self.insert_list(xs)
 
 
     def balance_factor(self):
@@ -49,7 +52,9 @@ class AVLTree():
         FIXME:
         Implement this function.
         '''
-
+	if node is None:
+		return True
+	return AVLTree._balance_factor(node) in [-1, 0, 1] and AVLTree._is_avl_satisfied(node.left) and AVLTree._is_avl_satisfied(node.right)
 
     @staticmethod
     def _left_rotate(node):
@@ -62,7 +67,7 @@ class AVLTree():
         The textbook's class hierarchy for their AVL tree code is fairly different from our class hierarchy,
         however, so you will have to adapt their code.
         '''
-
+	
 
     @staticmethod
     def _right_rotate(node):
