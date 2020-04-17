@@ -61,5 +61,52 @@ class AVLTree(BST):
 		return newroot
 		
 
-	#def insert(self, value):
+	def insert(self, value):
+		if self.root is None:
+			self.root = Node(value)
+		else:
+			self.root = AVLTree._insert(value, self.root)
+
+            
+	def insert_list(self, xs):
+		for x in xs:
+			self.insert(x)
+
+
+	@staticmethod
+	def _insert(value,node):
+		if value < node.value:
+			if node.left is None:
+				node.left = Node(value)
+			else:
+				AVLTree._insert(value, node.left)
+		elif value > node.value:
+			if node.right is None:
+				node.right = Node(value)
+			else:
+				AVLTree._insert(value, node.right)
+		else:
+			print('Already in the tree')
+
+		if AVLTree._is_avl_satisfied(node) == False:
+			node.left = AVLTree.rebalance(node.left)
+			node.right = AVLTree.rebalance(node.right)
+			return AVLTree.rebalance(node)
+		else:
+			return node
+
+
+	@staticmethod
+	def rebalance(node):
+		if AVLTree._balance_factor(node)> 1:
+			if AVLTree._balance_factor(node.left) < 0:
+				node.left = AVLTree._left_rotate(node.left)
+			return AVLTree._right_rotate(node)
+		elif AVLTree._balance_factor(node)<-1:
+			if AVLTree._balance_factor(node.right)>0:
+				node.right = AVLTree._right_rotate(node.right)
+			return AVLTree._left_rotate(node)
+		else:
+			return node
+
 
