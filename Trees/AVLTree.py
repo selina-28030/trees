@@ -37,7 +37,7 @@ class AVLTree(BST):
 		if node is None or node.right is None:
 			return node
 		newroot = Node(node.right.value)
-		newroot.left = node.right.right
+		newroot.right = node.right.right
 		
 		new_left = Node(node.value)
 		new_left.left = node.left
