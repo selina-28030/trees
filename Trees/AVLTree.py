@@ -42,7 +42,7 @@ class AVLTree(BST):
 		new_left = Node(node.value)
 		new_left.left = node.left
 		new_left.right = node.right.left
-		new_root.left = new_left
+		newroot.left = new_left
 		return new_root
 
 
