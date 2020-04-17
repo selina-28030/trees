@@ -33,7 +33,7 @@ class AVLTree(BST):
 
    
 	@staticmethod
-	def_left_rotate(node):
+	def _left_rotate(node):
 		if node is None or node.right is None:
 			return node
 		newroot = Node(node.right.value)
