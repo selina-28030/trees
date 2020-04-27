@@ -1,9 +1,8 @@
 '''
 '''
-#test
 from Trees.BinaryTree import BinaryTree, Node
 
-class Heap():
+class Heap(BinaryTree):
     '''
     FIXME:
     Heap is currently not a subclass of BinaryTree.
@@ -17,6 +16,9 @@ class Heap():
         If xs is a list (i.e. xs is not None),
         then each element of xs needs to be inserted into the Heap.
         '''
+        super().__init__()
+        if xs: 
+            self.insert_list(xs)
 
 
     def __repr__(self):
