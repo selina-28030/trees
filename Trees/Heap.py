@@ -117,6 +117,16 @@ class Heap(BinaryTree):
         Create a recursive staticmethod helper function,
         similar to how the insert and find functions have recursive helpers.
         '''
+        node = self.root
+        return BST._find_smallest(node).value
+        
+    
+    @staticmethod
+    def _find_smallest(node):
+        if node.left is not None:
+            return Heap._find_smallest(node.left)
+        else:
+            return node
 
 
     def remove_min(self):
