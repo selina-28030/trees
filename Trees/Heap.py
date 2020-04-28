@@ -62,17 +62,17 @@ class Heap(BinaryTree):
             return True
         if node.left and node.right:
             if node.value < node.right.value and node.value < node.left.value:
-                return BST._is_bst_satisfied(node.left) and BST._is_bst_satisfied(node.right) 
+                return Heap._is_bst_satisfied(node.left) and Heap._is_bst_satisfied(node.right) 
             else:
                 return False      
         if node.left:
             if node.value < node.left.value:
-                return BST._is_bst_satisfied(node.left)
+                return Heap._is_bst_satisfied(node.left)
             else:
                 return False
         if node.right:
             if node.value < node.right.value:
-                return BST._is_bst_satisfied(node.right)
+                return Heap._is_bst_satisfied(node.right)
             else:
                 return False
         return True
