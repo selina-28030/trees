@@ -70,7 +70,7 @@ class Heap(BinaryTree):
                 return Heap._is_heap_satisfied(node.right)
             else:
                 return False
-        return True
+        return Heap._is_heap_satisfied(node.right) and Heap._is_heap_satisfied(node.left)
      
 
 
