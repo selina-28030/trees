@@ -118,7 +118,7 @@ class Heap(BinaryTree):
         similar to how the insert and find functions have recursive helpers.
         '''
         node = self.root
-        return BST._find_smallest(node).value
+        return Heap._find_smallest(node).value
         
     
     @staticmethod
