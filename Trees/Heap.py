@@ -62,12 +62,12 @@ class Heap(BinaryTree):
         right = True
         if node.left:
             if node.value < node.left.value:
-                return left = Heap._is_heap_satisfied(node.left)
+                left = Heap._is_heap_satisfied(node.left)
             else:
                 return False
         if node.right:
             if node.value < node.right.value:
-                return right = Heap._is_heap_satisfied(node.right)
+                right = Heap._is_heap_satisfied(node.right)
             else:
                 return False
         return right and left
