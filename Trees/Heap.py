@@ -58,19 +58,19 @@ class Heap(BinaryTree):
         The lecture videos have the exact code you need,
         except that their method is an instance method when it should have been a static method.
         '''
-        if node.value == None:
-            return True 
+        left = True
+        right = True
         if node.left:
             if node.value < node.left.value:
-                return Heap._is_heap_satisfied(node.left)
+                return left = Heap._is_heap_satisfied(node.left)
             else:
                 return False
         if node.right:
             if node.value < node.right.value:
-                return Heap._is_heap_satisfied(node.right)
+                return right = Heap._is_heap_satisfied(node.right)
             else:
                 return False
-        return Heap._is_heap_satisfied(node.right) and Heap._is_heap_satisfied(node.left)
+        return right and left
      
 
 
