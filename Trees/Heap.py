@@ -72,8 +72,25 @@ class Heap(BinaryTree):
                 return False
         return right and left
      
+    @staticmethod
+    def size(node):
 
+        if node is None:
+            return 0
+        stack=[]
+        stack.append(node)
+        size=1
+        while stack:
+            node=stack.pop()
+            if node.left:
+                size+=1
+                stack.append(node.left)
+            if node.right:
+                size+=1
+                stack.append(node.right)
+        return size
 
+        
     def insert(self, value):
         '''
         Inserts value into the heap.
@@ -91,6 +108,52 @@ class Heap(BinaryTree):
         FIXME:
         Implement this function.
         '''
+        if node.left is None:
+            ins_node = Node(value)
+            node.left = ins_node
+
+        elif node.right is None:
+            ins_node = Node(value)
+            node.right = ins_node
+            
+        size_r = Heap.size(node.right)
+        size_l = Heap.size(node.left)
+        if size_l <= size_r:
+            ins_node = node.left
+            ins_mode = Heap._insert(value, ins_mode)
+        else:
+            ins_node = node.right
+            ins_node = Heap._insert(value, ins_node)
+       
+        if ins_node.value < node.value:
+            return Heap._trickle_up(ins_node, value)
+        
+    @staticmethod
+    def _trickle_up(node, value):
+        '''
+        finds the recently inserted value and swaps up until it finds a sweet spot
+        '''
+        
+        if Heap._is_heap_satisfied(node) == True: 
+            return node
+        if node.left:
+            if node.left.value == value: 
+                new_parent = node.left.value
+                new_leftchild = node.value
+                
+                node.value = new_parent
+                node.left.value = new_leftchild
+        
+        if node.right:
+            if node.right.value == value: 
+                new_parent = node.right.value
+                new_rightchild = node.value
+
+                node.value = new_parent
+                node.right.value = new_rightchild
+
+        return node
+            
 
 
     def insert_list(self, xs):
