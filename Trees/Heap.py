@@ -108,25 +108,20 @@ class Heap(BinaryTree):
         FIXME:
         Implement this function.
         '''
-        if node is None: 
-            return 
-        
-        if node.left and node.right:
-            node.left = Heap._insert(node.left,value)
-            if node.value > node.left.value: 
+        if node is None:
+            return
+        if node.left is None:
+            node.left=Node(value)
+            if node.left.value<node.value:
                 return Heap._trickle_up(node,value)
-            
-        if node.left is None: 
-            node.left = Node(value)
-            if node.value > node.left.value:  
-                return Heap._trickle_up(node, value)
-        
-        elif node.right is None: 
-            node.right = Node(value) 
-            if node.value > node.right.value:
-                return Heap._trickle_up(node, value)
-        
-        return node
+        elif node.right is None:
+            node.right=Node(value)
+            if node.right.value<node.value:
+                return Heap._trickle_up(node,value)
+        if node.left and node.right:
+            node.left=Heap._insert(node.left,value)
+            if node.left.value<node.value:
+                return Heap._trickle_up(node,value)
 
     @staticmethod
     def _trickle_up(node, value):   
