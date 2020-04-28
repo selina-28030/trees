@@ -59,12 +59,7 @@ class Heap(BinaryTree):
         except that their method is an instance method when it should have been a static method.
         '''
         if node.value == None:
-            return True
-        if node.left and node.right:
-            if node.value < node.right.value and node.value < node.left.value:
-                return Heap._is_heap_satisfied(node.left) and Heap._is_heap_satisfied(node.right) 
-            else:
-                return False      
+            return True 
         if node.left:
             if node.value < node.left.value:
                 return Heap._is_heap_satisfied(node.left)
@@ -75,8 +70,7 @@ class Heap(BinaryTree):
                 return Heap._is_heap_satisfied(node.right)
             else:
                 return False
-        else:
-            return False
+        return True
      
 
 
