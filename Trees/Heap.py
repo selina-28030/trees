@@ -75,7 +75,8 @@ class Heap(BinaryTree):
                 return Heap._is_heap_satisfied(node.right)
             else:
                 return False
-        return True
+        else:
+            return False
      
 
 
