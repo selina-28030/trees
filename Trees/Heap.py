@@ -123,10 +123,7 @@ class Heap(BinaryTree):
     
     @staticmethod
     def _find_smallest(node):
-        if node.left is not None:
-            return Heap._find_smallest(node.left)
-        else:
-            return node
+        return node.value
 
 
     def remove_min(self):
