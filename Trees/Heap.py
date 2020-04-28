@@ -100,6 +100,8 @@ class Heap(BinaryTree):
         FIXME:
         Implement this function.
         '''
+        for x in xs:
+            self.insert(x)
 
 
     def find_smallest(self):
