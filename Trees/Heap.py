@@ -99,11 +99,11 @@ class Heap(BinaryTree):
             self.root = Node(value)
             self.root.descendents = 1
         else:
-            tree_size = Heap.size(node.root)
+            tree_size = Heap.size(self.root)
             tree_size = tree_size + 1
             tree_size = bin(tree_size).replace("0b", "")
             tree_size = tree_size[1:]
-            cur_node = node.root
+            cur_node = self.root
             for num in tree_size:
                 if num == '0':
                     cur_node = node.left
