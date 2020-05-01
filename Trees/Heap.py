@@ -191,13 +191,31 @@ class Heap(BinaryTree):
             if tree_size[-1] == '0':
                 swap_val = cur_node.left.value
                 self.root.value = swap_val
-                cur_node.left.value = None
+                cur_node.left = None
                 self.root = Heap._trickle_down(self.root)
             else:
                 swap_val = cur_node.right.value
                 self.root.value = swap_val
-                cur_node.right.value = None
+                cur_node.right = None
                 self.root = Heap._trickle_down(self.root)
+    
+    def trickle_down(self):
+        
+    
+    def _trickle_down(node):
+        if no node.left and no node.right:
+            pass
+        if node.value>node.left:
+            swap=node.left.value
+            node.left.value=node.value
+            node.value=swap
+            return Heap._trickle_down(node.left)
+        if node.value > node.right:
+            swap=node.right.value
+            node.right.value=node.value
+            node.value=swap
+            return Heap._trickle_down(node.right)      
+
             
         
         
