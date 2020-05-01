@@ -199,8 +199,6 @@ class Heap(BinaryTree):
                 cur_node.right = None
                 self.root = Heap._trickle_down(self.root)
     
-    def trickle_down(self):
-        
     
     def _trickle_down(node):
         if no node.left and no node.right:
