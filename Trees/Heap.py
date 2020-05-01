@@ -105,9 +105,9 @@ class Heap(BinaryTree):
             cur_node = self.root
             for num in tree_size[:-1]:
                 if num == '0':
-                    cur_node = node.left
+                    cur_node = cur_node.left
                 if num == '1':
-                    cur_node = node.right
+                    cur_node = cur_node.right
             if tree_size[-1] == '0':
                 cur_node.left = Node(value)
             else:
