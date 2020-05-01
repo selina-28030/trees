@@ -173,3 +173,31 @@ class Heap(BinaryTree):
         FIXME:
         Implement this function.
         '''
+        if self.root = None:
+            pass
+        if not self.root.left and not self.root.right:
+            self.root.value = None
+        else:
+            self.root.value = None
+            tree_size = Heap.size(self.root)
+            tree_size = bin(tree_size).replace("0b", "")
+            tree_size = tree_size[1:]
+            cur_node = self.root
+            for num in tree_size[:-1]:
+                if num == '0':
+                    cur_node = cur_node.left
+                if num == '1':
+                    cur_node = cur_node.right
+            if tree_size[-1] == '0':
+                swap_val = cur_node.left.value
+                self.root.value = swap_val
+                cur_node.left.value = None
+                self.root = Heap._trickle_down(self.root)
+            else:
+                swap_val = cur_node.right.value
+                self.root.value = swap_val
+                cur_node.right.value = None
+                self.root = Heap._trickle_down(self.root)
+            
+        
+        
