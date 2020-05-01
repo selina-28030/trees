@@ -104,12 +104,15 @@ class Heap(BinaryTree):
             tree_size = bin(tree_size).replace("0b", "")
             tree_size = tree_size[1:]
             cur_node = self.root
-            for num in tree_size:
+            for num in tree_size[:-1]:
                 if num == '0':
                     cur_node = node.left
                 if num == '1':
                     cur_node = node.right
-            cur_node = Node(value)
+            if tree_size[-1] == 0:
+                cur_node.left = Node(value)
+            else:
+                cur_node.right = Node(value)
 
     @staticmethod
     def _trickle_up(node, value):   
