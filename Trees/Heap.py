@@ -90,7 +90,7 @@ class Heap(BinaryTree):
                 stack.append(node.right)
         return size
 
-        
+    @staticmethod    
     def insert(self, value):
         '''
         Inserts value into the heap.
@@ -99,7 +99,7 @@ class Heap(BinaryTree):
             self.root = Node(value)
             self.root.descendents = 1
         else:
-            tree_size = size(node.root)
+            tree_size = Heap.size(node.root)
             tree_size = tree_size + 1
             tree_size = bin(tree_size).replace("0b", "")
             tree_size = tree_size[1:]
