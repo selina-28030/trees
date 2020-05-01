@@ -203,12 +203,12 @@ class Heap(BinaryTree):
     def _trickle_down(node):
         if not node.left and not node.right:
             pass
-        if node.value>node.left:
+        if node.value>node.left.value:
             swap=node.left.value
             node.left.value=node.value
             node.value=swap
             return Heap._trickle_down(node.left)
-        if node.value > node.right:
+        if node.value > node.right.value:
             swap=node.right.value
             node.right.value=node.value
             node.value=swap
