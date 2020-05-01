@@ -169,7 +169,6 @@ class Heap(BinaryTree):
         '''
         Removes the minimum value from the Heap. 
         If the heap is empty, it does nothing.
-
         FIXME:
         Implement this function.
         '''
@@ -192,27 +191,41 @@ class Heap(BinaryTree):
                 swap_val = cur_node.left.value
                 self.root.value = swap_val
                 cur_node.left = None
-                self.root = Heap._trickle_down(self.root)
             else:
                 swap_val = cur_node.right.value
                 self.root.value = swap_val
                 cur_node.right = None
-                self.root = Heap._trickle_down(self.root)
-    
+            Heap._trickle_down(self.root)
+                
     @staticmethod
     def _trickle_down(node):
         if not node.left and not node.right:
             pass
-        if node.value>node.left.value:
-            swap=node.left.value
-            node.left.value=node.value
-            node.value=swap
-            return Heap._trickle_down(node.left)
-        if node.value > node.right.value:
-            swap=node.right.value
-            node.right.value=node.value
-            node.value=swap
-            return Heap._trickle_down(node.right)      
+        elif node.left and not node.right:
+            if node.value>node.left.value:
+                swap=node.value
+                node.value=node.left.value
+                node.left.value=swap
+                Heap._trickle_down(node.left)
+        elif node.right and not node.left:
+            if node.value>node.right.value:
+                swap=node.value
+                node.value=node.right.value
+                node.right.value=swap
+                Heap._trickle_down(node.right)
+        else:
+            if node.value<node.right.value and node.value<node.left.value:
+                pass
+            elif node.left.value<node.right.value:
+                swap=node.value
+                node.value=node.left.value
+                node.left.value=swap
+                Heap._trickle_down(node.left)
+            else:
+                swap=node.value
+                node.value=node.right.value
+                node.right.value=swap
+                Heap._trickle_down(node.right) 
 
             
         
