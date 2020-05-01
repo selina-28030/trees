@@ -89,8 +89,7 @@ class Heap(BinaryTree):
                 size+=1
                 stack.append(node.right)
         return size
-
-    @staticmethod    
+  
     def insert(self, value):
         '''
         Inserts value into the heap.
@@ -152,7 +151,7 @@ class Heap(BinaryTree):
         Implement this function.
         '''
         for x in xs:
-            self.insert(x, value)
+            self.insert(x)
 
 
     def find_smallest(self):
