@@ -173,7 +173,7 @@ class Heap(BinaryTree):
     
     @staticmethod
     def _find_smallest(node):
-        return node.value
+        return node
 
 
     def remove_min(self):
