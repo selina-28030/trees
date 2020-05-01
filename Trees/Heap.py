@@ -113,6 +113,8 @@ class Heap(BinaryTree):
                 cur_node.left = Node(value)
             else:
                 cur_node.right = Node(value)
+                
+            Heap._trickle_up(self.root, value)
 
     @staticmethod
     def _trickle_up(node, value):   
