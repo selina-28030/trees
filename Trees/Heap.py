@@ -175,7 +175,7 @@ class Heap(BinaryTree):
         if self.root == None:
             pass
         if not self.root.left and not self.root.right:
-            self.root.value = None
+            self.root = None
         else:
             self.root.value = None
             tree_size = Heap.size(self.root)
