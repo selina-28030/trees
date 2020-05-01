@@ -108,6 +108,14 @@ class Heap(BinaryTree):
         FIXME:
         Implement this function.
         '''
+        #get size of node, tree_size = size(node.root)
+        #add 1 to tree size, tree_size = tree_size + 1
+        #convert tree_size to binary number
+        #strip first digit of tree_size
+        #for num in tree_size
+        #if zero, go left
+        #if one, go right
+        #insert node(value) in new position
         if node is None:
             return
         if node.left is None:
