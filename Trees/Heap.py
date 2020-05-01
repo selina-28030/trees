@@ -173,7 +173,7 @@ class Heap(BinaryTree):
         FIXME:
         Implement this function.
         '''
-        if self.root = None:
+        if self.root == None:
             pass
         if not self.root.left and not self.root.right:
             self.root.value = None
@@ -199,7 +199,7 @@ class Heap(BinaryTree):
                 cur_node.right = None
                 self.root = Heap._trickle_down(self.root)
     
-    
+    @staticmethod
     def _trickle_down(node):
         if no node.left and no node.right:
             pass
