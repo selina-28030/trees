@@ -99,37 +99,17 @@ class Heap(BinaryTree):
             self.root = Node(value)
             self.root.descendents = 1
         else:
-            Heap._insert(value, self.root)
-
-
-    @staticmethod
-    def _insert(value, node):
-        '''
-        FIXME:
-        Implement this function.
-        '''
-        #get size of node, tree_size = size(node.root)
-        #add 1 to tree size, tree_size = tree_size + 1
-        #convert tree_size to binary number
-        #strip first digit of tree_size
-        #for num in tree_size
-        #if zero, go left
-        #if one, go right
-        #insert node(value) in new position
-        if node is None:
-            return
-        if node.left is None:
-            node.left=Node(value)
-            if node.left.value<node.value:
-                return Heap._trickle_up(node,value)
-        elif node.right is None:
-            node.right=Node(value)
-            if node.right.value<node.value:
-                return Heap._trickle_up(node,value)
-        if node.left and node.right:
-            node.left=Heap._insert(node.left,value)
-            if node.left.value<node.value:
-                return Heap._trickle_up(node,value)
+            tree_size = size(node.root)
+            tree_size = tree_size + 1
+            tree_size = bin(tree_size).replace("0b", "")
+            tree_size = tree_size[1:]
+            cur_node = node.root
+            for num in tree_size:
+                if num == '0':
+                    cur_node = node.left
+                if num == '1':
+                    cur_node = node.right
+            cur_node = Node(value)
 
     @staticmethod
     def _trickle_up(node, value):   
