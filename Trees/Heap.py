@@ -152,7 +152,7 @@ class Heap(BinaryTree):
         Implement this function.
         '''
         for x in xs:
-            self.insert(x)
+            self.insert(x, value)
 
 
     def find_smallest(self):
