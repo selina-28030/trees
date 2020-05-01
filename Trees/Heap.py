@@ -97,6 +97,7 @@ class Heap(BinaryTree):
         if self.root is None:
             self.root = Node(value)
             self.root.descendents = 1
+            self.root.parent=None
         else:
             tree_size = Heap.size(self.root)
             tree_size = tree_size + 1
@@ -110,36 +111,24 @@ class Heap(BinaryTree):
                     cur_node = cur_node.right
             if tree_size[-1] == '0':
                 cur_node.left = Node(value)
+                cur_node.left.parent=cur_node
+                self.root = Heap._trickle_up(cur_node.left)
             else:
                 cur_node.right = Node(value)
-            
-            self.root = Heap._trickle_up(self.root, value)
+                cur_node.right.parent=cur_node
+                self.root = Heap._trickle_up(cur_node.right)
 
     @staticmethod
-    def _trickle_up(node, value):   
-        if Heap._is_heap_satisfied(node) == True: 
+    def _trickle_up(node):
+        if node.parent==None:
             return node
-        if node.left and node.left.value > node.value:
-            node.left = Heap._trickle_up(node.left, value)
-        if node.right and node.right.value > node.value:
-            node.right = Heap._trickle_up(node.right, value)
-        if node.left:
-            if node.left.value == value: 
-                new_parent = node.left.value
-                new_leftchild = node.value
-                
-                node.value = new_parent
-                node.left.value = new_leftchild
-        
-        if node.right:
-            if node.right.value == value: 
-                new_parent = node.right.value
-                new_rightchild = node.value
-
-                node.value = new_parent
-                node.right.value = new_rightchild
-
-        return node
+        if node.value<node.parent.value:
+            swap=node.parent.value
+            node.parent.value=node.value
+            node.value=swap
+            return Heap._trickle_up(node)
+        else:
+            return Heap._trickle_up(node.parent)
             
 
 
