@@ -201,7 +201,7 @@ class Heap(BinaryTree):
     
     @staticmethod
     def _trickle_down(node):
-        if no node.left and no node.right:
+        if not node.left and not node.right:
             pass
         if node.value>node.left:
             swap=node.left.value
